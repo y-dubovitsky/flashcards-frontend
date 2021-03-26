@@ -1,38 +1,214 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* wrapper */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+}
+
+/* wrapper -> footer */
+
+.footer {
+  color: white;
+  border-top: 2px solid silver;
+  background-color: black;
+  padding: 2% 5%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* wrapper -> content-container */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* sidebar */
+
+.sidebar {
+  flex: 4;
+  background-color: black;
+  border-right: 2px gray solid;
   color: white;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 5% 3%;
+  transition: flex 2s;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar.active { /* add on toggle */
+  flex: 1;
+  font-size: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar h1 {
+  margin-bottom: 2rem;
+}
+
+.sidebar img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 2rem;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.sidebar h3 {
+  margin: 2rem 0;
+}
+
+/* content */
+
+.content {
+  flex: 8;
+  background-image: url('https://radiokp.ru/sites/default/files/styles/max_width_1400px/public/2020-04/big.jpg?itok=vtTUuLTy');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(132, 119, 252);
+  background-blend-mode: multiply;
+}
+
+/* navbar */
+
+.navbar {
+  position: fixed;
+  display: flex;
+  background-color: rgb(255, 255, 255, 0.3);
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  align-items: center;
+}
+
+.navbar a {
+  flex: 1;
+  color: white;
+  padding: 0.5rem;
+  text-decoration: none;
+  margin: 0 2rem;
+}
+
+.navbar a:last-child { /* Заглушка */
+  padding-right: 20%;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+/* card-container */
+
+.card-container {
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-button {
+  flex: 1;
+}
+
+.card-content {
+  flex: 5;
+  font-size: 2rem;
+  border: 1px solid black;
+  background-color: rgba(233, 233, 233, 0.8);
+  border-radius: 20px;
+  padding: 5% 0;
+  border: none;
+}
+
+.button-container {
+  display: flex;
+  margin: 5%;
+  justify-content: center;
+}
+
+.button-container button {
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px 5px rgba(0, 0, 0, 0.3);
+  border: none;
+  min-height: 2rem;
+  min-width: 4rem;
+  margin: 0 5%;
+  outline: none;
+}
+
+.button-container button:hover {
+  background-color: white;
+  color: black;
+}
+
+.button-container button:active {
+  transform: scale(0.95);
+}
+
+.nav-button {
+  color: white;
+  outline: none;
+  background: none;
+  border: none;
+}
+
+.nav-button i {
+  font-size: 3rem;
+}
+
+.nav-button i:hover {
+  color: black;
+}
+
+.nav-button i:active {
+  transform: scale(0.9);
+}
+
+/* Media queries */
+@media(max-width: 900px) , (max-height: 350px) {
+  * {
+    font-size: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar img{
+    height: 100px;
+    width: 100px;
+  }
+
+  .card-content {
+    padding: 2%;
+  }
+}
+
+@media(max-width: 500px) {
+  .nav-button i {
+    font-size: 1rem;
+  }
+
+  .button-container button {
+    font-size: 0.8rem;
+    min-height: 1.5rem;
+    min-width: 2rem;
+    margin: 0 2%;
+    outline: none;
+  }
+
+  .footer {
+    font-size: 0.8rem;
+  }
+
+  .sidebar {
+    display: none;
   }
 }
